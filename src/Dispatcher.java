@@ -7,8 +7,12 @@ public class Dispatcher {
     public Dispatcher() {
     }
 
-    public void addInterceptor(Logger l) {
+    public void attach(Logger l) {
         if (! interceptors.contains(l)) interceptors.add(l);
+    }
+
+    public void detach(Logger l){
+        interceptors.remove(l);
     }
 
     public List<Logger> getInterceptors() {

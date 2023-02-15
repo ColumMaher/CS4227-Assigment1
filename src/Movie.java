@@ -3,20 +3,37 @@ public class Movie {
     public static final int NEW_RELEASE = 1;
     public static final int CHILDRENS = 2;
 
-    private int priceCode;
+    private Price priceCode;
     private String title;
 
     public Movie(String title, int priceCode) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
     public int getPriceCode() {
-        return priceCode;
+        return priceCode.getPriceCode();
     }
 
     public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
+        switch (priceCode){
+            case REGULAR -> {
+                this.priceCode = new RegularPrice();
+                break;
+            }
+            case CHILDRENS -> {
+                this.priceCode = new ChildrensPrice();
+                break;
+            }
+            case NEW_RELEASE -> {
+                this.priceCode = new NewReleasePrice();
+                break;
+            }
+            default -> throw new IllegalArgumentException("Incorrect Price Code");
+        }
+    }
+    public double getCharge(int daysRented){
+        return priceCode.getCharge(daysRented);
     }
 
     public String getTitle() {
@@ -26,27 +43,7 @@ public class Movie {
     public String toString() {
         return this.title;
     }
-    public double getCharge(int daysRented){
-        double result = 0;
-        switch(this.getPriceCode()) {
-            case Movie.REGULAR:
-                result += 2;
-                if (daysRented > 2) result += 1.5*(daysRented-2);
-                break;
-            case Movie.CHILDRENS:
-                result = 1.5;
-                if (daysRented > 3) result += 1.5*(daysRented-3);
-                break;
-            case Movie.NEW_RELEASE:
-                result = 3*daysRented;
-                break;
-        }
-        return result;
-    }
     public int getFrequentRenterPoints(int daysRented){
-        if(this.getPriceCode() == Movie.NEW_RELEASE && daysRented > 1){
-            return 2;
-        }else
-            return 1;
+        return priceCode.getFrequentRenterPoints(daysRented);
     }
 }

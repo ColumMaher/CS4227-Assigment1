@@ -13,6 +13,7 @@ public class Main {
             customer.addRental(new Rental(m, days));
             days++;
         }
+        Context context = new Context(customer);
         System.out.println( customer.statement() );
     }
 }

@@ -2,9 +2,6 @@ import java.util.List;
 
 public class Context {
     private Customer customer;
-    private Movie movie;
-
-
     public Context(Customer customer){
         this.customer = customer;
     }
