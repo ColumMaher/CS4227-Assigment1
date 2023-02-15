@@ -14,6 +14,10 @@ public class Customer {
         if (! rentals.contains(rental)) rentals.add(rental);
     }
 
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
     public String getName() {
         return name;
     }
