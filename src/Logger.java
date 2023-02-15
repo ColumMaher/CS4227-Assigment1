@@ -1,8 +1,17 @@
 public class Logger implements Interceptor{
 
-    private Context c;
+    private Context context;
 
-    public Logger() {
+    public Logger(Context c) {
+        this.context = c;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context c) {
+        this.context = c;
     }
 
     @Override

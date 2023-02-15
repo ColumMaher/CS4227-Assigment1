@@ -5,6 +5,7 @@ public class Dispatcher {
     private List<Logger> interceptors;
 
     public Dispatcher() {
+
     }
 
     public void attach(Logger l) {
@@ -21,5 +22,9 @@ public class Dispatcher {
 
     public void setInterceptors(List<Logger> interceptors) {
         this.interceptors = interceptors;
+    }
+
+    public void dispatchLogger(Context c){
+
     }
 }

@@ -14,6 +14,9 @@ public class Main {
             days++;
         }
         Context context = new Context(customer);
+        Dispatcher dispatcher = new Dispatcher();
+        Logger logger = new Logger(context);
+        dispatcher.attach(logger);
         System.out.println( customer.statement() );
     }
 }
