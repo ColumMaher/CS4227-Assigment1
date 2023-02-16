@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dispatcher {
@@ -5,7 +6,7 @@ public class Dispatcher {
     private List<Logger> interceptors;
 
     public Dispatcher() {
-
+        this.interceptors = new ArrayList<Logger>();
     }
 
     public void attach(Logger l) {
@@ -24,7 +25,9 @@ public class Dispatcher {
         this.interceptors = interceptors;
     }
 
-    public void dispatchLogger(Context c){
-
+    public void interceptFrequentRenterPoints(Context c){
+        for (Logger l: interceptors){
+            l.interceptFrequentRenterPoints(c);
+        }
     }
 }

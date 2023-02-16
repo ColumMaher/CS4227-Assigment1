@@ -28,6 +28,12 @@ public class Customer {
 
         for(Rental rental: rentals) {
             //Add renter points
+            Context c = new Context(this);
+            Dispatcher dispatcher = new Dispatcher();
+            Logger logger = new Logger(c);
+            dispatcher.attach(logger);
+
+            dispatcher.interceptFrequentRenterPoints(c);
             frequentRenterPoints+= rental.getFrequentRenterPoints();
 
             //Show figures for this rental

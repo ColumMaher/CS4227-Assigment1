@@ -13,10 +13,10 @@ public class Main {
             customer.addRental(new Rental(m, days));
             days++;
         }
-        Context context = new Context(customer);
-        Dispatcher dispatcher = new Dispatcher();
-        Logger logger = new Logger(context);
-        dispatcher.attach(logger);
+        //Context context = new Context(customer);
+        //Dispatcher dispatcher = new Dispatcher();
+        //Logger logger = new Logger(context);
+        //dispatcher.attach(logger);
         System.out.println( customer.statement() );
     }
 }
