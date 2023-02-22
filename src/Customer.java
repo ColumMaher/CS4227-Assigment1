@@ -28,6 +28,11 @@ public class Customer {
 
         for(Rental rental: rentals) {
             //Add renter points
+
+            //Interception point
+            //1 context object, 2 interceptor, 3 attach dispatcher
+            //Create dispatcher/logger at start-up
+            //Create Context object at statement invoke
             frequentRenterPoints+= rental.getFrequentRenterPoints();
 
             //Show figures for this rental
