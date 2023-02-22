@@ -16,9 +16,11 @@ public class Logger implements Interceptor{
 
     @Override
     public void interceptFrequentRenterPoints(Context c) {
-        Customer customer = c.getCustomer();
+
+        //Only call context object methods
+        //Customer customer = c.getCustomer();
         int currentRenterPoints = 0;
-        for (Rental rental: customer.getRentals()){
+        for (Rental rental: c.getCustomerRentals()){
             currentRenterPoints += rental.getFrequentRenterPoints();
             System.out.println("LOG: Points for rental " + rental.getMovie().getTitle() + " " + currentRenterPoints);
         }

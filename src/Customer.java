@@ -5,9 +5,15 @@ public class Customer {
     private String name;
     private List<Rental> rentals;
 
+    Context context;
+    Dispatcher dispatcher;
+    Logger logger;
+
     public Customer(String name) {
         this.name = name;
         this.rentals = new ArrayList<Rental>();
+        //Call setup interceptor
+        setupInterceptor();
     }
 
     public void addRental(Rental rental) {
@@ -27,18 +33,8 @@ public class Customer {
         String result = "Rental Report for " +getName() + "\n";
 
         for(Rental rental: rentals) {
-            //Add renter points
 
-            //Interception point
-            //1 context object, 2 interceptor, 3 attach dispatcher
-            //Create dispatcher/logger at start-up
-            //Create Context object at statement invoke
-            Context c = new Context(this);
-            Dispatcher dispatcher = new Dispatcher();
-            Logger logger = new Logger(c);
-            dispatcher.attach(logger);
-
-            dispatcher.interceptFrequentRenterPoints(c);
+            dispatcher.interceptFrequentRenterPoints(context);
 
             frequentRenterPoints+= rental.getFrequentRenterPoints();
 
@@ -50,5 +46,12 @@ public class Customer {
         result += "Amount owed is " + String.valueOf(amount) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
         return result;
+    }
+    //setup interceptor method
+    private void setupInterceptor(){
+        this.context = new Context(this);
+        this.dispatcher = new Dispatcher();
+        this.logger = new Logger(context);
+        dispatcher.attach(logger);
     }
 }

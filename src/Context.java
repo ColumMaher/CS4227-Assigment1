@@ -13,7 +13,7 @@ public class Context {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-    public List getCustomerRentals(){
+    public List<Rental> getCustomerRentals(){
         return customer.getRentals();
     }
 }

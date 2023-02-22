@@ -17,6 +17,8 @@ public class Main {
         //Dispatcher dispatcher = new Dispatcher();
         //Logger logger = new Logger(context);
         //dispatcher.attach(logger);
+
+        //call interceptor setup before statement
         System.out.println( customer.statement() );
     }
 }
