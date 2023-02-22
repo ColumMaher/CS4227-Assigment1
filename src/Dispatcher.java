@@ -25,9 +25,7 @@ public class Dispatcher {
         this.interceptors = interceptors;
     }
 
-    public void interceptFrequentRenterPoints(Context c){
-        for (Logger l: interceptors){
-            l.interceptFrequentRenterPoints(c);
-        }
+    public void dispatchLogger(Context c){
+
     }
 }
