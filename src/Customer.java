@@ -35,11 +35,12 @@ public class Customer {
         for(Rental rental: rentals) {
 
             dispatcher.interceptFrequentRenterPoints(context);
-
             frequentRenterPoints+= rental.getFrequentRenterPoints();
 
             //Show figures for this rental
             result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
+
+            dispatcher.interceptGetCharge(context);
             amount += rental.getCharge();
         }
         //add footer lines

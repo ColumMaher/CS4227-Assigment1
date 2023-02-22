@@ -29,6 +29,11 @@ public class Logger implements Interceptor{
 
     @Override
     public void interceptGetCharge(Context c) {
-
+        int currentCharge = 0;
+        for(Rental rental: c.getCustomerRentals()){
+            currentCharge += rental.getCharge();
+            System.out.println("LOG: Charge for rental " + rental.getMovie().getTitle() + " " + currentCharge);
+        }
+        System.out.println("LOG: Total charge: " + currentCharge);
     }
 }

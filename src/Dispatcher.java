@@ -30,4 +30,9 @@ public class Dispatcher {
             l.interceptFrequentRenterPoints(c);
         }
     }
+    public void interceptGetCharge(Context c){
+        for(Logger l: interceptors){
+            l.interceptGetCharge(c);
+        }
+    }
 }
