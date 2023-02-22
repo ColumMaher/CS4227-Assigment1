@@ -33,6 +33,13 @@ public class Customer {
             //1 context object, 2 interceptor, 3 attach dispatcher
             //Create dispatcher/logger at start-up
             //Create Context object at statement invoke
+            Context c = new Context(this);
+            Dispatcher dispatcher = new Dispatcher();
+            Logger logger = new Logger(c);
+            dispatcher.attach(logger);
+
+            dispatcher.interceptFrequentRenterPoints(c);
+
             frequentRenterPoints+= rental.getFrequentRenterPoints();
 
             //Show figures for this rental
