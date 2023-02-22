@@ -17,6 +17,6 @@ public class Main {
         //Dispatcher dispatcher = new Dispatcher();
         //Logger logger = new Logger(context);
         //dispatcher.attach(logger);
-        //System.out.println( customer.statement() );
+        System.out.println( customer.statement() );
     }
 }
